@@ -1,4 +1,4 @@
-package com.online.booking
+package com.app.pizza
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,7 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.online.booking.databinding.ActivityMainBinding
+import com.app.pizza.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

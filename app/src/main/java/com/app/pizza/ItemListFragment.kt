@@ -1,11 +1,11 @@
-package com.online.booking
+package com.app.pizza
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.online.booking.databinding.FragmentItemListBinding
+import com.app.pizza.databinding.FragmentItemListBinding
 
 class ItemListFragment: Fragment() {
 

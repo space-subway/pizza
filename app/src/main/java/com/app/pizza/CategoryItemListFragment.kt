@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.online.booking.databinding.FragmentCategoryItemListBinding
+import com.app.pizza.databinding.FragmentCategoryItemListBinding
 
 class CategoryItemListFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
