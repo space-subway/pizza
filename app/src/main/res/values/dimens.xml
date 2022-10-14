@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="content_margin_min">8dp</dimen>
+    <dimen name="item_height">150dp</dimen>
+    <dimen name="content_margin">24dp</dimen>
+    <dimen name="header_scroll_height">200dp</dimen>
+
+    <dimen name="list_item_title_text_size">24dp</dimen>
+    <dimen name="list_item_content_margin_right">100dp</dimen>
+</resources>
