@@ -1,23 +1,21 @@
 package com.app.pizza
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.app.pizza.databinding.ActivityMainBinding
+import androidx.viewpager.widget.ViewPager
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var viewPager: ViewPager
+    lateinit var viewPagerAdapter: SlidePagerAdapter
+    lateinit var headerSliderList: List<Int>
 
     private var _binding: ActivityMainBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,30 +25,22 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbarMainActivity)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_item_detail) as NavHostFragment
+        viewPager = binding.sliderViewPager
 
-        val navController = navHostFragment.navController
+        // on below line we are initializing
+        // our image list and adding data to it.
+        headerSliderList = ArrayList<Int>()
+        headerSliderList = headerSliderList + R.drawable.header_slide_1
+        headerSliderList = headerSliderList + R.drawable.header_slide_2
+        headerSliderList = headerSliderList + R.drawable.header_slide_3
 
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        // on below line we are initializing our view
+        // pager adapter and adding image list to it.
+        viewPagerAdapter = SlidePagerAdapter(this@MainActivity, headerSliderList)
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_item_detail)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
-
-    private fun showPopUpMessage(message: String?){
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    }
-
-    private fun setVisibleActionItem(i: Int, isVisible: Boolean) {
-        val menuItem = binding.toolbarMainActivity.menu.getItem(i)
-        menuItem.isVisible = isVisible
+        // on below line we are setting
+        // adapter to our view pager.
+        viewPager.adapter = viewPagerAdapter
     }
 
 }
