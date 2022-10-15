@@ -30,20 +30,24 @@
             android:layout_height="wrap_content"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed"
-            app:navigationIconTint="@android:color/white">
+            app:navigationIconTint="@color/toolbar_icon_color">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/slider_view_pager"
+                android:layout_width="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_height="@dimen/header_scroll_height"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center" />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar_main_activity"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"/>
+                app:menu="@menu/toolbar_menu"
+                app:layout_collapseMode="pin">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/slider_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/header_scroll_height"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center" />
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

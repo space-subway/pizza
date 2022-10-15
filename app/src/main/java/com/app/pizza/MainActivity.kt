@@ -1,6 +1,8 @@
 package com.app.pizza
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.app.pizza.databinding.ActivityMainBinding
 import androidx.viewpager.widget.ViewPager
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.toolbarMainActivity.title = ""
         setSupportActionBar(binding.toolbarMainActivity)
 
         viewPager = binding.sliderViewPager
@@ -43,4 +46,8 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = viewPagerAdapter
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 }
