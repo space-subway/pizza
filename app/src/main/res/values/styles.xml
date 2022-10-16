@@ -3,5 +3,11 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
+        <item name="actionBarTheme">@style/AppActionBarTheme</item>
     </style>
+
+    <style name="AppActionBarTheme">
+        <item name="colorPrimary">@color/toolbar_background</item>
+    </style>
+
 </resources>

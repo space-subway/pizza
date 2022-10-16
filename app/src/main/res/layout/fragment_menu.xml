@@ -20,6 +20,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_main_activity"
+        android:theme="@style/AppActionBarTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +49,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/primary"
+                android:background="@color/toolbar_background"
                 app:layout_collapseMode="pin"
                 app:menu="@menu/toolbar_menu">
 
