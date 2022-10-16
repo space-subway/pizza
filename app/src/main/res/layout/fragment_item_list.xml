@@ -9,7 +9,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_items_view"
-        android:name="com.online.myapplication.ItemListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="LinearLayoutManager"
