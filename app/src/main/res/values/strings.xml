@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Pizza</string>
     <string name="qr_code_item_title">Scan QR code</string>
+    <string name="bottom_nav_item_menu">Menu</string>
+    <string name="bottom_nav_item_profile">Profile</string>
+    <string name="bottom_nav_item_basket">Basket</string>
 </resources>
