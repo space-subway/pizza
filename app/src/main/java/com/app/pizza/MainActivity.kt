@@ -5,20 +5,24 @@ import android.view.Menu
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
-import com.app.pizza.databinding.ActivityMainBinding
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager.widget.ViewPager
-import java.util.*
+import com.app.pizza.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var viewPager: ViewPager
-    lateinit var viewPagerAdapter: SlidePagerAdapter
-    lateinit var headerSliderList: List<Int>
 
     private var _binding: ActivityMainBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    lateinit var viewPager: ViewPager
+    lateinit var viewPagerAdapter: SlidePagerAdapter
+    lateinit var headerSliderList: List<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbarMainActivity.title = ""
         setSupportActionBar(binding.toolbarMainActivity)
+        //binding.toolbarMainActivity.title = ""
 
         viewPager = binding.sliderViewPager
 
@@ -51,7 +55,21 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, R.layout.dropdown_menu_list_item, dropdownItems)
         (binding.menuTextField as? AutoCompleteTextView)?.setAdapter(adapter)
 
+        val navView: BottomNavigationView = binding.bottomNavigation
+
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_menu, R.id.navigation_profile, R.id.navigation_basket
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_menu_navigation"
+    app:startDestination="@+id/navigation_menu">
+
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="com.app.pizza.MenuFragment"
+        android:label=""
+        tools:layout="@layout/fragment_menu"/>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.app.pizza.ProfileFragment"
+        android:label="@string/bottom_nav_item_profile"
+        tools:layout="@layout/fragment_profile"/>
+
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.app.pizza.BasketFragment"
+        android:label="@string/bottom_nav_item_basket"
+        tools:layout="@layout/fragment_basket"/>
+
+</navigation>
