@@ -41,13 +41,14 @@
 
     </RelativeLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/price"
+        android:background="@drawable/selector_button"
+        android:textColor="@color/primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginTop="@dimen/content_margin"
-        android:layout_marginEnd="@dimen/content_margin_min"
-        android:textStyle="bold"/>
+        android:layout_marginEnd="@dimen/content_margin_min" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

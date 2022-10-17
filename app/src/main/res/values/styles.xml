@@ -10,4 +10,8 @@
         <item name="colorPrimary">@color/toolbar_background</item>
     </style>
 
+    <style name="ChipButton" parent="TextAppearance.MaterialComponents.Button">
+        <item name="background">@drawable/selector_button</item>
+    </style>
+
 </resources>

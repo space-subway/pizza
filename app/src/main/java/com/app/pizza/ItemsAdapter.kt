@@ -12,7 +12,7 @@ class ItemsAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemsAd
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var imageView              : ImageView = view.findViewById(R.id.image_view)
         var tittleTextView         : TextView  = view.findViewById(R.id.title)
-        var priceTextView          : TextView  = view.findViewById(R.id.price)
+        var priceButton            : TextView  = view.findViewById(R.id.price)
         var descriptionTextView    : TextView  = view.findViewById(R.id.description)
     }
 
@@ -26,9 +26,9 @@ class ItemsAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemsAd
 
         if( position % 2 == 0 )  holder.imageView.setImageResource(R.drawable.pizza_1)
         else holder.imageView.setImageResource(R.drawable.pizza_2)
-        
+
         holder.tittleTextView.text      = item.title
-        holder.priceTextView.text       = "от " + item.price.toDouble() + " р"
+        holder.priceButton.text         = "от " + item.price.toDouble() + " р"
         holder.descriptionTextView.text = item.description
     }
 
