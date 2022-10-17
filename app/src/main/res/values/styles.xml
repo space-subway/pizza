@@ -14,4 +14,11 @@
         <item name="background">@drawable/selector_button</item>
     </style>
 
+    <style name="ChipTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@drawable/selector_button</item>
+        <item name="tabTextColor">@android:color/darker_gray</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+        <item name="tabTextAppearance">@android:style/TextAppearance.Widget.TabWidget</item>
+    </style>
+
 </resources>
