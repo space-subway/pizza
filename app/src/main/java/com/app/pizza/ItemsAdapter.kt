@@ -10,6 +10,7 @@ import com.app.pizza.model.Item
 
 class ItemsAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>(){
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var imageView              : ImageView = view.findViewById(R.id.image_view)
         var tittleTextView         : TextView  = view.findViewById(R.id.title)
         var priceTextView          : TextView  = view.findViewById(R.id.price)
         var descriptionTextView    : TextView  = view.findViewById(R.id.description)
@@ -23,6 +24,9 @@ class ItemsAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemsAd
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[ position ]
 
+        if( position % 2 == 0 )  holder.imageView.setImageResource(R.drawable.pizza_1)
+        else holder.imageView.setImageResource(R.drawable.pizza_2)
+        
         holder.tittleTextView.text      = item.title
         holder.priceTextView.text       = "от " + item.price.toDouble() + " р"
         holder.descriptionTextView.text = item.description
