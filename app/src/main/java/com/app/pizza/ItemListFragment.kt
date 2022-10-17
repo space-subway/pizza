@@ -19,8 +19,27 @@ class ItemListFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemAdapter : ItemsAdapter
 
+    companion object {
+        const val ARG_ITEMS = "items"
+
+        fun getInstance( items: ArrayList<Item>? ): Fragment{
+            var bundle = Bundle()
+            bundle.putParcelableArrayList( ARG_ITEMS, items)
+            var fragment = ItemListFragment()
+            fragment.arguments = bundle
+
+            return fragment
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        var items = requireArguments().getParcelableArrayList<Item>(ARG_ITEMS)
+
+        items?.let{
+            itemAdapter = ItemsAdapter(items)
+        }
     }
 
     override fun onCreateView(
@@ -30,32 +49,10 @@ class ItemListFragment: Fragment() {
     ): View? {
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
 
+        var recyclerView = binding.recyclerItemsView
+        recyclerView.adapter = itemAdapter
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        //init items lis view
-        val items: List<Item> = listOf(
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 ),
-            Item("title", "descrition", 123.0 )
-        )
-
-        items?.let{
-            itemAdapter = ItemsAdapter(items)
-            itemAdapter.notifyDataSetChanged()
-        }
-
-        recyclerView = binding.recyclerItemsView
-        recyclerView.adapter = itemAdapter
-    }
 }
