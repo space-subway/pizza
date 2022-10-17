@@ -45,9 +45,6 @@ class MenuFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //setSupportActionBar(binding.toolbar)
-        //binding.toolbarMainActivity.title = ""
-
         viewPager = binding.sliderViewpager
 
         // on below line we are initializing
@@ -66,7 +63,7 @@ class MenuFragment: Fragment() {
         viewPager.adapter = viewPagerAdapter
 
         //fill toolbar dropdown exposed menu
-        val dropdownItems = listOf("Option 1", "Option 2", "Option 3", "Option 4")
+        val dropdownItems = listOf("Москва", "Санкт-Петербург")
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_menu_list_item, dropdownItems)
         (binding.menuTextField as? AutoCompleteTextView)?.setAdapter(adapter)
     }
